@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-07-06T13:09:18+05:30</updated><id>/feed.xml</id><title type="html">Techstructive Blog</title><subtitle>The blog for Constructive Technology. </subtitle><entry><title type="html">Vim: Enhancing Movement Speed</title><link href="/2021/07/05/Vim-Enhancing-Movement-speed.html" rel="alternate" type="text/html" title="Vim: Enhancing Movement Speed" /><published>2021-07-05T19:54:30+05:30</published><updated>2021-07-05T19:54:30+05:30</updated><id>/2021/07/05/Vim-Enhancing-Movement-speed</id><content type="html" xml:base="/2021/07/05/Vim-Enhancing-Movement-speed.html">&lt;p&gt;&lt;img src=&quot;/assets/img/vimMove1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;OK! Vim and movent are like bread and butter or failed brakes. To become a proficient Vim user, you need to move in Vim very effectively. You don’t have to think about doing certain things, your fingertips should automatically move without wasting time thinking about it. I am sure, it takes time and effort but OH! it is so rewarding in the end.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-h-j-k-l&quot;&gt;Why H J K L?&lt;/h3&gt;
+&lt;p&gt;First things first, unmap arrow keys and make a habit of using h,j,k, and l. Yes, this would not make any sense in the initial stage but that will make no sense for not using it later. 
+The thing with H J K L is that they are quite flexible to work with and if you use it with numbers you would navigate much faster than arrow keys. Such as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10j&lt;/code&gt; will move you 10 lines down at a time in normal mode. These keys are used with many of the other key shortcuts and commands which just make it most important to begin learning to move around in Vim with H J K L.&lt;/p&gt;
+
+&lt;h2 id=&quot;moving-horizontally&quot;&gt;Moving Horizontally.&lt;/h2&gt;
+&lt;p&gt;This is quite the common movement that every programmer uses most of the time. This is also a much-neglected part when movement in Vim is concerned. To the basics, we use the following commands:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w&lt;/code&gt;   -&amp;gt;  &lt;strong&gt;move forward by a word (considering punctuations as separate words).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;W&lt;/code&gt;   -&amp;gt;  &lt;strong&gt;move forward by a word (punctuations ignored).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;move backward by a word (considering punctuations as separate words).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;move backward by a word (punctuations ignored).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;e&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;move to end of a word (considering punctuations as separate words).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;E&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;move to end of a word (punctuations ignored).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;move to the beginning of a sentence.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt;  -   &lt;strong&gt;move to the end of a sentence.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Those are the most useful and common commands for moving across the line. Don’t forget to use the number before the command to repeat the task for that number of times. Like for example, if you would like to go 6 words ahead type in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6w&lt;/code&gt;. This can improve your thinking and typing as well, good signs of a programmer Eh!&lt;/p&gt;
+
+&lt;h2 id=&quot;moving-vertically&quot;&gt;Moving Vertically.&lt;/h2&gt;
+
+&lt;p&gt;To move vertically we can imagine moving within a file or the block of code. For moving in a file, the following are some useful commands.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gg&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move to the beginning of a file.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;G&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;move to the end of a file.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + e&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;move the screen down without moving the cursor.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + y&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move the screen up without moving the cursor.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + f&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move forward one entire screen.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + b&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move backward one entire screen.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + d&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move forward half screen.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + u&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move backward half screen.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This just was moving around the screen and now a bit programmatic movement. We will see some keystrokes to move in code blocks or code snippets very efficiently.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gd&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move to the local declaration of any code.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gD&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move to the global declaration of any code.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move between pairs of ( ), { }, [ ] or any other type of such braces.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move to the next paragraph/ code block/ function/ etc)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;}&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move to the previous paragraph/ code block/ functions/ etc)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fa&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move to the next occurrence of the character ‘a’ in a sentence.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Fa&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move to the previous occurrence of the character ‘a’ in a sentence.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ta&lt;/code&gt;  -&amp;gt; &lt;strong&gt;jump to before of the next occurrence of the character ‘a’ in a sentence.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ta&lt;/code&gt;  -&amp;gt; &lt;strong&gt;jump to after of the previous occurrence of the character ‘a’ in a sentence.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The above might be quite handy key shortcuts in moving in a large code file. Even in files with complex variable names and structures, this can be quite handy.&lt;/p&gt;
+
+&lt;h2 id=&quot;search-and-navigation&quot;&gt;Search and navigation.&lt;/h2&gt;
+&lt;p&gt;Searching is quite a time-consuming task, especially when the code is quite complex and has a lot of variables and all. Vim shines in many of such aspects where people think it’s dead. It rises from the ashes to produce a performance-driven experience like any other modern IDEs though it requires a bit of research:) Here are some commands that will make searching and navigating around it quite a lot easier.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt; -&amp;gt; &lt;strong&gt;next occurrence of the word under the cursor.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#&lt;/code&gt; -&amp;gt; &lt;strong&gt;previous occurrence of the word under the cursor.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;  -&amp;gt; &lt;strong&gt;next occurrence of the word searched pattern.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;N&lt;/code&gt;  -&amp;gt; &lt;strong&gt;previous occurrence of the word searched pattern.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The above commands will also work if you search the pattern from the command mode.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/pattern&lt;/code&gt;  or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?pattern&lt;/code&gt; Enter and navigate to the next(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;) and previous(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;N&lt;/code&gt;) occurrence of that pattern match.&lt;/p&gt;
+
+&lt;h2 id=&quot;moving-across-files&quot;&gt;Moving across files.&lt;/h2&gt;
+
+&lt;p&gt;Moving across files without any plugins or file explorer is often considered tricky or impossible for some people but there is a way. You can switch between files using the following commands:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + O&lt;/code&gt;  -&amp;gt;   &lt;strong&gt;move in the previously opened file.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;and&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + I&lt;/code&gt;  -&amp;gt;  **move in the next file. **&lt;/p&gt;
+
+&lt;p&gt;We also can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + ^ &lt;/code&gt; to move the previous two opened files.&lt;/p&gt;
+
+&lt;p&gt;If you want to switch from buffers, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:bn&lt;/code&gt; for moving into the next buffer, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:bp&lt;/code&gt; to move in the previous buffer. You always have an option to move from a buffer using the file name &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:b filename&lt;/code&gt; or using the index as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:bindex&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;moving-between-tabs&quot;&gt;Moving between Tabs.&lt;/h2&gt;
+
+&lt;p&gt;People rarely use Tabs as far as I have seen, but they are quite useful and provide the polish off just as robust IDEs.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:tabnew filename&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;create a Tab of a file.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gt&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move to the next tab.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ngt&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move to the nth tab.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gT&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move to the previous tab&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:tabo&lt;/code&gt;  -&amp;gt; **close all the tabs except the current one.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:tabc&lt;/code&gt;  -&amp;gt; &lt;strong&gt;close the tab.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:tabm n&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move the current tab to nth position.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;movement-in-marks&quot;&gt;Movement in Marks.&lt;/h2&gt;
+
+&lt;p&gt;Marks are used for some quite large files and code-bases. It is used to move from one mark(kind of a bookmark) to another using few key commands, marks are generally created when you would go to a particular code block or any part of the file again and again. Some of the quick navigation using maps are the following.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mn&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;set the current position as mark ‘a’.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;` &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;jump to the position of mark ‘n’.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;` &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;  -&amp;gt; &lt;strong&gt;jump to the position where vim was last exited.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;` &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;jump to the position when the last edit was made in the file.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;split-windows-movement&quot;&gt;Split Windows Movement&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + w + r&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move the split down.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + w + R&lt;/code&gt;  -&amp;gt; &lt;strong&gt;move the split up.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + w + h&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;jump to the left split.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + w + j&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;jump to the split down.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + w + k&lt;/code&gt;  -&amp;gt; &lt;strong&gt;jump to the upper split.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + w + l&lt;/code&gt;  -&amp;gt;  &lt;strong&gt;jump to the left split.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You can use Caps H J K L to move the leftmost, bottom, uppermost, rightmost split respectively. 
+That just was quick to make you enough faster than previous hassles.&lt;/p&gt;
+
+&lt;p&gt;That was probably it, these were some tricks and shortcuts to move around Vim pretty effectively and smoothly. Moving around Vim can be quite complicated at once, but it’s just finding the key shortcuts to make you feel and glid in VIm. There might be quite a lot of shortcuts missing, If you have any quicker shortcuts, Please let me know in the comments.  Happy Viming :)&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction OK! Vim and movent are like bread and butter or failed brakes. To become a proficient Vim user, you need to move in Vim very effectively. You don’t have to think about doing certain things, your fingertips should automatically move without wasting time thinking about it. I am sure, it takes time and effort but OH! it is so rewarding in the end.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/img/vimMove1.png" /><media:content medium="image" url="/assets/img/vimMove1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Vim: Keymapping Guide</title><link href="/2021/07/05/Vim-Keymapping.html" rel="alternate" type="text/html" title="Vim: Keymapping Guide" /><published>2021-07-05T19:47:34+05:30</published><updated>2021-07-05T19:47:34+05:30</updated><id>/2021/07/05/Vim-Keymapping</id><content type="html" xml:base="/2021/07/05/Vim-Keymapping.html">&lt;p&gt;&lt;img src=&quot;/assets/img/vimkmap.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Keymapping or Key binding is a process in which a user or a system can assign certain keys or commands to perform a particular task or commands. This can be quite useful in Vim as well as in other text editors to avoid some repetitive tasks and save time. In Vim this can be a great power to have for programmers as it can be really very flexible to set up for any programming language and it’s 
+ environment.&lt;/p&gt;
+
+&lt;p&gt;In Vim, you can map a particular keystroke combination to trigger a command or any operation. You can also map a key in place of a weird key combination as well. You can map a key to integrate several commands and make it run at a single key or without much of a hassle. Key Mapping is quite powerful in Vim, only your creativity and imagination are the limits here. Vim can really shine in such aspects where the user has the freedom to tailor the editor and his development environment as per his/her needs.&lt;/p&gt;
+
+&lt;h2 id=&quot;understanding-the-structure-of-key-binding&quot;&gt;Understanding the structure of Key binding&lt;/h2&gt;
+&lt;p&gt;You can basically map a key depending on the current mode you are in. So that means you can have the same key mapped to different commands depending on the mode. That is really flexible and powerful. Vim allows you to basically map in almost every mode such as normal, insert, visual, command, and any other existing modes. Let us see what a basic key mapping looks like.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{mode}{attribute}map {key} {command}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The key mapping is broken down by adding the mode to map the key, an optional attribute to change/modify the way the mapping behaves and we finally have the key and the command pair. If you want to test a map you can temporarily map in the command mode using the syntax for the map command or if you want a permanent mapping, you can add the mappings in your vimrc file.&lt;/p&gt;
+
+&lt;p&gt;For a basic example let us map c to paste from the clipboard.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:map c &quot;+p&amp;lt;CR&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The above command maps the “c” key in the &lt;strong&gt;normal/visual mode&lt;/strong&gt; by default to paste the contents from the clipboard. It is just an example of how a basic key mapping or binding can be used to save your time and efforts. This is a very small example to demonstrate the concept of mapping in Vim but it scales quite fantastically and smoothly.&lt;/p&gt;
+
+&lt;p&gt;Now let’s see how to view the mapping inside of the current vim buffer. We can simply type map, imap, or nmap in the command mode to view the mappings in the respective modes. This will display the maps which are currently present inside of the vim buffer, some might be temporary and most of them will be permanent.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:map 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;If you type in map being in the command mode, it will list out the maps. If you want to stop seeing the list just press q, and you will be back in the editor. You can also view the maps in the normal, visual, insert, or any other modes by prefixing n, v, i, or other modes with map.&lt;/p&gt;
+
+&lt;h2 id=&quot;key-mapping-in-modes&quot;&gt;Key Mapping in Modes&lt;/h2&gt;
+&lt;p&gt;To map a key binding explicitly in the normal mode or any other modes, we have to prefix the word such as n for normal, v for visual or i for insert, and so on. The map will only work in the provided mode so the same keys may have several different maps depending on the current mode, but that can create a bit of confusion so avoid doing that. Let’s map a key in the normal mode for example,&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:nmap &amp;lt;C-s&amp;gt; :w&amp;lt;CR&amp;gt;    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is pretty bad for Vim beginners as it will spoil the real Vim experience of saving with :w, If you feel comfortable using Ctrl + s to save a file, the above map will be perfect. It will map the key Ctrl + s by pressing :w and then pressing enter to save changes to the file.&lt;/p&gt;
+
+&lt;p&gt;We can also map certain non-alphabetical keys such as CTRL, ALT, and others, it will help you in saving time to leave a mode and enter the mode again to edit the text. The following is a perfect example of such.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:imap &amp;lt;C-c&amp;gt; &amp;lt;ESC&amp;gt;&quot;+pa
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The above command is &lt;strong&gt;mapped in insert mode&lt;/strong&gt; as the mode is set to insert at the command’s beginning. The CTRL+c keys are mapped to first Escaping out of insert mode and then pasting from the “+ register which is the device clipboard here. In the end, we again get back to insert mode just to the right of the current cursor position. So, that is how we can map the keys to do the task and save a bit of time.&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-keymaps-in-vimrc-file&quot;&gt;Adding Keymaps in vimrc file&lt;/h2&gt;
+&lt;p&gt;So you can now map in any available modes in Vim and test it out in te=he current buffer, but if you notice when you close the buffer, your custom keymaps will not be functioning as they remain in the buffer until you close it. To make it permanent you need to type the exact map command to the vimrc file. Just don’t add “:” as it is not a command mode, it should be only the pure command of the map.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmap &amp;lt;C-s&amp;gt; :w&amp;lt;CR&amp;gt;
+nmap &amp;lt;C-p&amp;gt; &quot;+p
+vmap &amp;lt;C-y&amp;gt; &quot;+y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The above commands are pasted in the vimrc file. These keymaps once sourced will stay in permanently unless you remove them from the file.&lt;/p&gt;
+
+&lt;h2 id=&quot;keymap-modifications&quot;&gt;Keymap Modifications&lt;/h2&gt;
+&lt;p&gt;We can also add extra arguments to the keymaps such as noremap and remap and others. In remap, the keymap is recursive which means the key pair will get mapped to the keys mapped already somewhere. The keymap will redefine its map depending on the already existing maps.  It is preferred to use noremap as it will not mix up the existing maps and have a fresh key binding. The mapping in Vim is quite versatile and there are quite a lot of modifications you could do to make your key binding feel and work according to you. So for further un depth understanding of modifications of keymap in Vim you can check out their documentation  [here](https://vim.fandom.com/wiki/Mapping_keys_in_Vim_-&lt;em&gt;Tutorial&lt;/em&gt;(Part_1%29).&lt;/p&gt;
+
+&lt;h2 id=&quot;keymapping-usecases&quot;&gt;Keymapping Usecases&lt;/h2&gt;
+&lt;p&gt;Now, it’s entirely up to you to make keymaps according to your preference and choice. You can use your creativity and knowledge to make powerful and efficient keymaps.&lt;/p&gt;
+
+&lt;p&gt;For some insights, I’d like to give in some cool and productive keymaps which I personally use very frequently in coding a particular programming language.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nnoremap py :!python %&amp;lt;CR&amp;gt;                          &quot; Python run macro
+nnoremap cpp :!c++ % -o %:r &amp;amp;&amp;amp; ./%:r &amp;lt;CR&amp;gt;           &quot; C++ compile and run macro
+nnoremap sh :!chmod +x % &amp;amp;&amp;amp; source %&amp;lt;CR&amp;gt;            &quot; Bash sourcing macro 
+nnoremap c :!clang % -o %:r &amp;amp;&amp;amp; ./%:r &amp;lt;CR&amp;gt;           &quot; C compile and run macro 
+nnoremap jv :!javac % &amp;amp;&amp;amp; java %:r &amp;lt;CR&amp;gt;              &quot; Java compile and run macro
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The above mapping will run the file or compile and run the file you are currently editing in Vim. That is just an overview of how you can use key mappings in Vim for any programming language or tool. Vim allows you to modify and make the keys do the heavy lifting very easily and save a lot of time and frustration. This is how you implement DRY(don’t repeat yourself) perfectly. I personally think this is just perfect to do certain things which are quite common and sometimes daunts you to do this again. So just have a look and play around with Vim keymaps, it is the power with which one can excel in saving time and energy. This is just flawless. OK, That was too much from my side.&lt;/p&gt;
+
+&lt;h2 id=&quot;keymapping-and-macros&quot;&gt;Keymapping and Macros&lt;/h2&gt;
+&lt;p&gt;Some Keymappings provided above are quite interesting for a person trying to understand macros and key binding. A macro is a bunch of commands packed in together to access it very efficiently, Not the exact definition, but still, it just means to simplify things and saves time. Keymapping is the same thing but to map with the keys.&lt;/p&gt;
+
+&lt;p&gt;From some snippets and explanations of VIm keymaps, it must be easier now for a beginner to understand Keymappings in Vim and how to customize accordingly.&lt;/p&gt;
+
+&lt;p&gt;I hope it helped, Thank you for listening to my understanding of Vim keymapping. Below are some of my keymaps currently in vim for windows. Some of them were already shown in the code snippets.
+&lt;img src=&quot;https://cdn.hashnode.com/res/hashnode/image/upload/v1623654888460/pBfJO2jkZ.png&quot; alt=&quot;vimkmap.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, Keymaps are quite powerful and can be a bit difficult to set up in a single try. Keep experimenting with keymaps and make Vim the powerhouse of productivity and customization. Happy Viming :)&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction Keymapping or Key binding is a process in which a user or a system can assign certain keys or commands to perform a particular task or commands. This can be quite useful in Vim as well as in other text editors to avoid some repetitive tasks and save time. In Vim this can be a great power to have for programmers as it can be really very flexible to set up for any programming language and it’s environment.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/img/vimkmap.png" /><media:content medium="image" url="/assets/img/vimkmap.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Vim: Terminal Integration</title><link href="/2021/07/05/Vim-Article.html" rel="alternate" type="text/html" title="Vim: Terminal Integration" /><published>2021-07-05T19:40:42+05:30</published><updated>2021-07-05T19:40:42+05:30</updated><id>/2021/07/05/Vim-Article</id><content type="html" xml:base="/2021/07/05/Vim-Article.html">&lt;p&gt;&lt;img src=&quot;/assets/img/vimterm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;vim-and-terminal&quot;&gt;Vim and Terminal!?&lt;/h2&gt;
+&lt;p&gt;Vim was made to work with the command line. Many beginners do not understand what are the true capabilities of Vim, myself included:) Vim can run terminal commands without leaving the text editor, open an instance of a terminal, work with shell environments, and other things depending on the use case.&lt;/p&gt;
+
+&lt;h2 id=&quot;running-terminal-shell-commands-from-within-vim&quot;&gt;Running Terminal/ shell commands from within Vim&lt;/h2&gt;
+
+&lt;p&gt;You can run the commands from inside of Vim by just using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:!&lt;/code&gt; before the command, this means you have to be in command mode. Just after being in command mode, the ! or bang operator will execute the command typed after it from the terminal(Linux/ macOS) or your default shell(Windows -&amp;gt; CMD/Powershell).&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:!pwd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The above command from vim will redirect to the terminal and show the output of the command and return on pressing any key. In this case, it will execute the PWD command and just wait for the user to enter any key to return to Vim.&lt;/p&gt;
+
+&lt;p&gt;The following is an example of how it could be used from Vim in Windows using Powershell as the default shell.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.hashnode.com/res/hashnode/image/upload/v1624885870237/Ie5C-3u1B.gif&quot; alt=&quot;Animation.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In Windows, dir is equivalent of ls for Linux. That was not the best example of how a terminal can be used at its best, You can also use a logical operator from within vim to run multiple commands at once.&lt;/p&gt;
+
+&lt;h3 id=&quot;running-programs-code-from-vim-on-terminal&quot;&gt;Running programs/ code from Vim on terminal&lt;/h3&gt;
+
+&lt;p&gt;This becomes quite a great feature for making Vim from a text editor to an IDE, this can be paired with Keymaps i.e when the user types certain keys, the command gets executed making the code run from the terminal. I have already used this feature to set up Vim for python, bash, and other programming languages. Also, I have written an article about  &lt;a href=&quot;https://dev.to/mrdestructive/vim-keymapping-guide-3olb&quot;&gt;keymapping&lt;/a&gt;  and Vim setup for  &lt;a href=&quot;https://dev.to/mrdestructive/setting-up-vim-for-python-ej&quot;&gt;Python&lt;/a&gt;  and  &lt;a href=&quot;https://techstructiveblog.hashnode.dev/vim-setup-for-bash-scripting&quot;&gt;Bash&lt;/a&gt;, this will give you an idea of how to setup vim for any programming language.&lt;/p&gt;
+
+&lt;p&gt;Vim can really shine in this kind of feature as it just becomes flawless and a smooth experience even for a beginner. We just have to run the compile the code and run its executable/ output file, rather for python and other interpreted languages, we have to just pass the file name to the interpreter and that’s it.&lt;/p&gt;
+
+&lt;h2 id=&quot;opening-instance-of-terminal-within-vim&quot;&gt;Opening instance of Terminal within Vim.&lt;/h2&gt;
+
+&lt;p&gt;Vim can also create an instance of the terminal within its window by making a split. This is quite similar to VS Code and other Text editors that have the functionality to create an instance of the terminal within itself. This feature is useful for developing complex systems and depending on the use case, it can be quite important and efficient as well.&lt;/p&gt;
+
+&lt;p&gt;The terminal can be created in various ways the most preferred way is by typing in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:term&lt;/code&gt; from Vim. 
+This will create a horizontal split from the current editor and split it into half. You can change the size of the split using the mouse according to your preference.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.hashnode.com/res/hashnode/image/upload/v1624888468392/wR0JT8SBN.gif&quot; alt=&quot;vimtermsplit.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here Vim has certain variables and shortcuts to make things even simpler, say you want to parse the current file to the terminal for execution. You can surely type the name manually or you can be a bit smarter and use % instead, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%&lt;/code&gt; symbol will parse the file name along with the extension in the terminal. Also &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%:r&lt;/code&gt; will parse filename without the extensions(.txt/.py/etc) to the terminal.&lt;/p&gt;
+
+&lt;p&gt;There are many things you can do with terminals surely, but with Vim that even goes further than the limits. Terminal/command line is quite important in any development environment as it is an interface for the user to interact with the Operating System. Vim is quite powerful and behaves as a gecko for programmers because it changes itself according to our needs flawlessly and &lt;strong&gt;efficiently&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.hashnode.com/res/hashnode/image/upload/v1624891655340/5f81Dpp_O.gif&quot; alt=&quot;vimpython.gif&quot; /&gt;
+Integrating Terminal into a Text Editor truly lights up the environment for development. It becomes an easy and enjoyable experience to test out the code without wasting much time on the actual execution process. Surely it needs time to set up the environment to speed things, for that understanding of the programming and development environment is required. Happy Viming :)&lt;/p&gt;</content><author><name></name></author><summary type="html">Vim and Terminal!? Vim was made to work with the command line. Many beginners do not understand what are the true capabilities of Vim, myself included:) Vim can run terminal commands without leaving the text editor, open an instance of a terminal, work with shell environments, and other things depending on the use case.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/img/vimterm.png" /><media:content medium="image" url="/assets/img/vimterm.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
