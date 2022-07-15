@@ -1,0 +1,11 @@
+asgiref
+Django
+gunicorn
+python-environ
+sqlparse
+whitenoise
+djangorestframework
+django-allauth
+django-crispy-forms
+crispy-bootstrap5
+psycopg2-binary
