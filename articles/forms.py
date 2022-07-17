@@ -8,6 +8,7 @@ class ArticleForm(forms.ModelForm):
         exclude = (
             "created",
             "updated",
+            "author",
         )
         widgets = {
             "title": forms.TextInput(

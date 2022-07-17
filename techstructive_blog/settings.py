@@ -144,12 +144,14 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Authentication
+AUTH_USER_MODEL = "user.User"
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
-LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "user:redirect"
+LOGIN_URL = "account_login"
 
 # PASSWORDS
 # ------------------------------------------------------------------------------
@@ -198,3 +200,19 @@ SOCIALACCOUNT_FORMS = {"signup": "user.forms.UserSocialSignupForm"}
 
 # django-rest-framework
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
+
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_ADAPTER = "user.adapters.AccountAdapter"
+ACCOUNT_FORMS = {"signup": "user.forms.UserSignupForm"}
+SOCIALACCOUNT_ADAPTER = "user.adapters.SocialAccountAdapter"
+SOCIALACCOUNT_FORMS = {"signup": "user.forms.UserSocialSignupForm"}
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "dj.notes0@gmail.com"
+EMAIL_HOST_PASSWORD = "qupapedismynlyup"
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

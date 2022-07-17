@@ -19,7 +19,8 @@ from .routers import router
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("user/", include("user.urls")),
+    path("user/", include("user.urls", namespace="users")),
+    path("accounts/", include("allauth.urls")),
     path("article/", include("articles.urls")),
     path("blog/", include("blog.urls")),
     path("api/", include(router.urls)),

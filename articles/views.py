@@ -51,6 +51,11 @@ class ArticleCreateView(CreateView):
     template_name = "articles/create_article.html"
     success_url = "/article"
 
+    def form_valid(self, form):
+        print(self.request.user)
+        form.instance.author = self.request.user
+        return super(ArticleCreateView, self).form_valid(form)
+
 
 class ArticleUpdateView(ArticleSecureView, UpdateView):
     """View to update an Article"""

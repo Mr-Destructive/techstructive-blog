@@ -2,7 +2,7 @@ from user.models import TimeStampedModel
 from django.utils.translation import gettext_lazy as _
 from django.db import models
 from blog.models import Blog
-from user.models import Author
+from user.models import User
 
 
 class Tags(TimeStampedModel):
@@ -33,4 +33,4 @@ class Article(TimeStampedModel):
         default=Article_Status.DRAFT,
     )
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, null=True, blank=True)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author")
