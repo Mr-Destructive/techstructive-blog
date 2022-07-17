@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body %}
+<a href="" ><button>Create</button></a>
+<ul>
+  {% for article in articles %}
+  <li>
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.description }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

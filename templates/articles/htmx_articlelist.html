@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block body %}
+    <!-- htmx -->
+    <script src="https://unpkg.com/htmx.org@1.6.1/dist/ext/client-side-templates.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks.min.js" integrity="sha512-IIuR+Zp8wvP0dxNcSsRPoL7SXzP1kGmosDtcU7f6cPObZ9F5Ze/icFSRH/SqigP468jGwDm2XOE0/gSGm/cTBw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+    <div hx-ext="client-side-templates"
+         hx-trigger="load"
+         hx-get="/api/blog" 
+         hx-target="#list"
+         hx-swap="outerHTML"
+         nunjucks-template="articlelist"
+      ></div>
+
+      <script id="articlelist" type="nunjucks">
+        {% verbatim %}
+        {% for article in articles %}
+          <li>
+           <a href="/api/blog/{{ article.id }}"><h2>{{article.title}}</h2></a>
+            <p>{{article.description}}</p>
+          </li>
+        {% endfor %}
+        {% endverbatim %}
+      </script>
+      <ul id="list"></ul>
+    <script>
+htmx.defineExtension('client-side-templates', {
+  transformResponse : function(text, xhr, elt) {
+    var nunjucksTemplate = htmx.closest(elt, "[nunjucks-template]");
+    if (nunjucksTemplate) {
+      var data = {
+        articles: JSON.parse(text).map((item) => {
+          return item;
+        })
+      };
+
+      var templateName = nunjucksTemplate.getAttribute('nunjucks-template');
+      var template = htmx.find('#' + templateName);
+      return nunjucks.renderString(template.innerHTML, data);
+    }
+    return text;
+  }
+});
+    </script>
+{% endblock %}

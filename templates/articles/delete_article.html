@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container pt-5">
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <p>Are you sure you want to delete the Article<b>{{ object.name }}</b>?</p>
+        <input type="submit" value="confirm">
+    </form>
+  <a href="{% url 'articles:article_detail' object.id %}"><button>Back</button></a>
+</div>
+{% endblock %}
