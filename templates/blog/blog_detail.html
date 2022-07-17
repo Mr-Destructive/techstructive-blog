@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h2>{{ blog.name }}</h2>
+  <a href="{% url 'blog:update_blog' blog.id %}"><button>Edit</button></a>
+  <a href="{% url 'blog:delete_blog' blog.id %}"><button>Delete</button></a>
+  <h3>{{ blog.description }}</h3>
+{% endblock %}

@@ -18,8 +18,9 @@ from django.urls import path, include
 from .routers import router
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('user/', include('user.urls')),
-    path('article/', include('articles.urls')),
-    path('api/', include(router.urls)),
+    path("admin/", admin.site.urls),
+    path("user/", include("user.urls")),
+    path("article/", include("articles.urls")),
+    path("blog/", include("blog.urls")),
+    path("api/", include(router.urls)),
 ]

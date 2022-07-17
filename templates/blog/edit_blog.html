@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container pt-5">
-  <a href="{% url 'articles:article_detail' object.id %}"><button>Back</button></a>
-    <h3>Update Article</h3>
+  <a href="{% url 'blog:blog_detail' object.id %}"><button>Back</button></a>
+    <h3>Update Blog</h3>
     <form method="post" novalidate>
         {% csrf_token %}
         {% for field in form.visible_fields %}

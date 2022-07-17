@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
-  <h2>{{ article.title }}</h2>
+<h2>{{ article.title }}</h2>
+
   <a href="{% url 'articles:update_article' article.id %}"><button>Edit</button></a>
   <a href="{% url 'articles:delete_article' article.id %}"><button>Delete</button></a>
   <h3>{{ article.description }}</h3>

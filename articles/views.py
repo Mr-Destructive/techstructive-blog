@@ -1,4 +1,4 @@
-from .models import Article  
+from .models import Article
 from .serializers import ArticleSerializer
 from .forms import ArticleForm
 from django.views.generic.list import ListView
@@ -7,9 +7,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from rest_framework import mixins, viewsets
 from rest_framework.views import APIView
 
+
 class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+
 
 class ArticleView(APIView):
     model = Article
@@ -20,7 +22,8 @@ class ArticleView(APIView):
         context["articles"] = Article.objects.all()
         return context
 
-class ArticleSecureView():
+
+class ArticleSecureView:
 
     model = Article
 
@@ -28,13 +31,16 @@ class ArticleSecureView():
         handler = super().dispatch(request, *args, **kwargs)
         return handler
 
+
 class ArticleListView(ArticleView, ListView):
     """View to list all Articles."""
+
     template_name = "articles/index.html"
 
 
 class ArticleDetailView(ArticleSecureView, DetailView):
     """View to list the details from one article."""
+
     template_name = "articles/article_detail.html"
 
 
@@ -52,6 +58,7 @@ class ArticleUpdateView(ArticleSecureView, UpdateView):
     form_class = ArticleForm
     template_name = "articles/edit_article.html"
     success_url = "/article"
+
 
 class ArticleDeleteView(ArticleSecureView, DeleteView):
     """View to delete an Article"""
