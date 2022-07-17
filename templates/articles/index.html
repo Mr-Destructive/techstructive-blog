@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block body %}
-<a href="" ><button>Create</button></a>
+<a href="{% url 'articles:create_article' %}" ><button>Create</button></a>
 <ul>
   {% for article in articles %}
   <li>
-    <h2>{{ article.title }}</h2>
+    <a href="{% url 'articles:article_detail' article.id %}"><h2>{{ article.title }}</h2></a>
     <p>{{ article.description }}</p>
   </li>
   {% endfor %}

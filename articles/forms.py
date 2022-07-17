@@ -5,7 +5,10 @@ from .models import Article
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        exclude = ("created", "updated",)
+        exclude = (
+            "created",
+            "updated",
+        )
         widgets = {
             "title": forms.TextInput(
                 attrs={
@@ -26,6 +29,12 @@ class ArticleForm(forms.ModelForm):
                     "class": "form-control",
                     "style": "max-width: 900px;",
                     "placeholder": "Content",
+                }
+            ),
+            "blog": forms.Select(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Blog Publication",
                 }
             ),
         }

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body %}
+<a href="{% url 'blog:create_blog' %}" ><button>Create</button></a>
+<ul>
+  {% for blog in blogs %}
+  <li>
+    <a href="{% url 'blog:blog_detail' blog.id %}"><h2>{{ blog.name }}</h2></a>
+    <p>{{ blog.description }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
