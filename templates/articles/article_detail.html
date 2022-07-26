@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 {% block body %}
 {% load markdown_article %}
-<h2>{{ article.title }}</h2>
 
-  <a href="{% url 'articles:update_article' article.id %}"><button>Edit</button></a>
-  <a href="{% url 'articles:delete_article' article.id %}"><button>Delete</button></a>
-  <h3>{{ article.description }}</h3>
-  <p>{{ article.content|convert_markdown|safe }}</p>
+<div id="article-detail">
+  <h2>{{ article.title }}</h2>
+  <form method="post" >
+  {% csrf_token %}
+    <button
+      hx-delete="{% url 'articles:article-delete' article.id %}"
+      hx-confirm="Are you sure, You want to delete this article?"
+      type="submit"
+      >
+      Delete
+    </button>
+  </form>
+    <h3>{{ article.description }}</h3>
+    <p>{{ article.content|convert_markdown|safe }}</p>
+</div>
 {% endblock %}

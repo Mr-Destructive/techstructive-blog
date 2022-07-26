@@ -14,14 +14,20 @@ class ArticleForm(forms.ModelForm):
             "title": forms.TextInput(
                 attrs={
                     "class": "form-control",
-                    "style": "max-width: 300px;",
+                    "style": "max-width: 450px; align: center;",
                     "placeholder": "Title",
+                }
+            ),
+            "blog": forms.Select(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Blog Publication",
                 }
             ),
             "description": forms.TextInput(
                 attrs={
                     "class": "form-control",
-                    "style": "max-width: 300px;",
+                    "style": "max-width: 900px;",
                     "placeholder": "description",
                 }
             ),
@@ -30,12 +36,6 @@ class ArticleForm(forms.ModelForm):
                     "class": "form-control",
                     "style": "max-width: 900px;",
                     "placeholder": "Content",
-                }
-            ),
-            "blog": forms.Select(
-                attrs={
-                    "class": "form-control",
-                    "placeholder": "Blog Publication",
                 }
             ),
         }

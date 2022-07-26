@@ -1,6 +1,3 @@
-{% extends 'base.html' %}
-{% block body %}
-<a href="{% url 'articles:create_article' %}" ><button>Create</button></a>
 <ul>
   {% for article in articles %}
   <li>
@@ -9,4 +6,3 @@
   </li>
   {% endfor %}
 </ul>
-{% endblock %}
