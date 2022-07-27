@@ -197,7 +197,7 @@ SOCIALACCOUNT_ADAPTER = "user.adapters.SocialAccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
 SOCIALACCOUNT_FORMS = {"signup": "user.forms.UserSocialSignupForm"}
 
-
+CSRF_TRUSTED_ORIGINS = ['https://django-blog.up.railway.app','http://127.0.0.1',]
 # django-rest-framework
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
 

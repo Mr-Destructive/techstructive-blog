@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   {% load static %}
-    <script src="https://unpkg.com/htmx.org@1.1.0"></script>
+  <script src="https://unpkg.com/htmx.org@1.1.0"></script>
 <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <header class="site-header">
       <nav>
@@ -44,11 +44,6 @@
       {% endif %}
     {% endblock %}
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-      document.body.addEventListener('htmx:configRequest', (event) => {
-        event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
-      })
-    </script>
 </body>
 </html>
 
