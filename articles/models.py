@@ -34,3 +34,6 @@ class Article(TimeStampedModel):
     )
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author")
+
+    def __str__(self):
+        return self.title

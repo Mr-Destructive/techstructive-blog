@@ -14,14 +14,14 @@ from .forms import ArticleForm
 class ArticleCreateView(CreateView):
     model = Article
     form_class = ArticleForm
+    template_name = 'articles/article_form.html'
     #fields = ['title', 'description', 'content', 'status', 'blog']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         obj = form.save()
         messages.add_message(self.request, messages.SUCCESS, 'Your article has been saved!')
-        #context = {'article': self.object}
-        return render(self.request, "articles/article_detail.html", {'article': obj})
+        return redirect("articles:article-detail", pk=obj.id)
 
 class HomeView(ListView):
     model = Article
@@ -33,7 +33,6 @@ class HomeView(ListView):
 
 class ArticleDetailView(View):
     model = Article
-    template_name = "articles/article_detail.html"
 
     def get(self, request, pk, *args, **kwargs):
         article = Article.objects.get(id=pk)
