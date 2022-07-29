@@ -32,7 +32,7 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG", default=True)
 
-ALLOWED_HOSTS = ["django-blog.up.railway.app", "127.0.0.1"]
+ALLOWED_HOSTS = ["https://django-blog.up.railway.app", "django-blog.up.railway.app", "127.0.0.1"]
 
 
 # Application definition
@@ -49,9 +49,9 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     "rest_framework",
 ]
 
@@ -76,24 +76,30 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "techstructive_blog.urls"
 
+WSGI_APPLICATION = 'techstructive_blog.wsgi.application'
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
+
         "DIRS": [os.path.join(BASE_DIR, "templates")],
+
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.media",
+                "django.template.context_processors.static",
+                "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
+                "user.context_processors.allauth_settings",
             ],
         },
     },
 ]
-
-WSGI_APPLICATION = "techstructive_blog.wsgi.application"
-
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -109,7 +115,7 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-# DATABASES["default"].update(env.db("DATABASE_URL"))
+DATABASES["default"].update(env.db("DATABASE_URL"))
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -126,30 +132,29 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 STATIC_URL = "static/"
-STATIC_ROOT = "static"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_DIRS = [str(BASE_DIR/ "static")]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
-STATICFILES_DIRS = (
-    ("js", os.path.join(STATIC_ROOT, "js")),
-    ("css", os.path.join(STATIC_ROOT, "css")),
-    ("images", os.path.join(STATIC_ROOT, "images")),
-    ("fonts", os.path.join(STATIC_ROOT, "fonts")),
-)
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
+AUTH_USER_MODEL = "user.User"
+LOGIN_REDIRECT_URL = "home"
+LOGIN_URL = "account_login"
+
 
 # Authentication
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
-# https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
-LOGIN_URL = "login"
 
 # PASSWORDS
 # ------------------------------------------------------------------------------
@@ -172,7 +177,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
-
 # http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -195,6 +199,24 @@ SOCIALACCOUNT_ADAPTER = "user.adapters.SocialAccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
 SOCIALACCOUNT_FORMS = {"signup": "user.forms.UserSocialSignupForm"}
 
-
+CSRF_TRUSTED_ORIGINS = ['https://django-blog.up.railway.app','http://127.0.0.1',]
 # django-rest-framework
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
+
+
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_ADAPTER = "user.adapters.AccountAdapter"
+ACCOUNT_FORMS = {"signup": "user.forms.UserSignupForm"}
+SOCIALACCOUNT_ADAPTER = "user.adapters.SocialAccountAdapter"
+SOCIALACCOUNT_FORMS = {"signup": "user.forms.UserSocialSignupForm"}
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "dj.notes0@gmail.com"
+EMAIL_HOST_PASSWORD = "qupapedismynlyup"
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+

@@ -8,20 +8,27 @@ class ArticleForm(forms.ModelForm):
         exclude = (
             "created",
             "updated",
+            "author",
         )
         widgets = {
             "title": forms.TextInput(
                 attrs={
                     "class": "form-control",
-                    "style": "max-width: 300px;",
+                    "style": "max-width: 450px; align: center;",
                     "placeholder": "Title",
+                }
+            ),
+            "blog": forms.Select(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Blog Publication",
                 }
             ),
             "description": forms.TextInput(
                 attrs={
                     "class": "form-control",
-                    "style": "max-width: 300px;",
-                    "placeholder": "description",
+                    "style": "max-width: 900px;",
+                    "placeholder": "Description",
                 }
             ),
             "content": forms.Textarea(

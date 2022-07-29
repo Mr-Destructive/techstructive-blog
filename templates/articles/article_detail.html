@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% block body %}
-<h2>{{ article.title }}</h2>
+{% load markdown_article %}
 
-  <a href="{% url 'articles:update_article' article.id %}"><button>Edit</button></a>
-  <a href="{% url 'articles:delete_article' article.id %}"><button>Delete</button></a>
-  <h3>{{ article.description }}</h3>
-  <p>{{ article.content|safe }}</p>
+<div hx-target="this" hx-swap="outerHTML">
+{% include 'articles/partials/article-detail.html' %}
+</div>
 {% endblock %}

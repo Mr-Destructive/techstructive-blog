@@ -7,8 +7,7 @@ whitenoise
 djangorestframework
 django-allauth
 django-crispy-forms
-crispy-bootstrap5
+crispy-bootstrap5==0.6
 psycopg2-binary
-argon2
-django[argon2]
 Markdown
+django[argon2]

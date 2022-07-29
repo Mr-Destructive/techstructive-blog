@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .routers import router
+from articles import views as article_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("user/", include("user.urls")),
-    path("article/", include("articles.urls")),
-    path("blog/", include("blog.urls")),
-    path("api/", include(router.urls)),
+    path("user/", include("user.urls", namespace="users")),
+    path('accounts/', include('allauth.urls')),
+    path("", article_views.HomeView.as_view(), name="home"),
+    path("article/", include("articles.urls", namespace="articles")),
+    path("blog/", include("blog.urls", namespace="blog")),
+    #path("api/", include(router.urls)),
 ]
