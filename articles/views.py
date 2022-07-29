@@ -8,6 +8,8 @@ from django.views import View
 
 from django.shortcuts import redirect
 
+import articles
+
 from .models import Article
 from .forms import ArticleForm
 
@@ -42,3 +44,7 @@ class ArticleDetailView(View):
         Article.objects.get(id=pk).delete()
         articles = Article.objects.filter(author=self.request.user)
         return HttpResponse("")
+    
+    def put(self, request, pk, *args, **kwargs):
+        article = Article.objects.get(id=pk)
+        return render(self.request, 'articles/partials/update.html', {'form': ArticleForm(instance=article), 'article': article})
