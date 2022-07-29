@@ -6,6 +6,7 @@ from blog.models import Blog
 from user.models import User
 
 
+
 class Tags(TimeStampedModel):
     ...
 
@@ -41,3 +42,4 @@ class Article(TimeStampedModel):
 
     def get_absolute_url(self):      
         return reverse('articles:article-detail', args=[str(self.id)])
+

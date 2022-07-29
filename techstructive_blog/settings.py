@@ -74,14 +74,16 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'techstructive_blog.urls'
+ROOT_URLCONF = "techstructive_blog.urls"
 
 WSGI_APPLICATION = 'techstructive_blog.wsgi.application'
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR , "templates")],
+
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
+
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -113,7 +115,7 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-# DATABASES["default"].update(env.db("DATABASE_URL"))
+DATABASES["default"].update(env.db("DATABASE_URL"))
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -136,6 +138,7 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -145,6 +148,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "user.User"
 LOGIN_REDIRECT_URL = "home"
 LOGIN_URL = "account_login"
+
 
 # Authentication
 AUTHENTICATION_BACKENDS = [
@@ -199,6 +203,7 @@ CSRF_TRUSTED_ORIGINS = ['https://django-blog.up.railway.app','http://127.0.0.1',
 # django-rest-framework
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
 
+
 ACCOUNT_AUTHENTICATION_METHOD = "username"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
@@ -214,3 +219,4 @@ EMAIL_HOST_PASSWORD = "qupapedismynlyup"
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+

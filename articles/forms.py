@@ -38,4 +38,10 @@ class ArticleForm(forms.ModelForm):
                     "placeholder": "Content",
                 }
             ),
+            "blog": forms.Select(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Blog Publication",
+                }
+            ),
         }

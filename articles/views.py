@@ -13,6 +13,7 @@ import articles
 from .models import Article
 from .forms import ArticleForm
 
+
 class ArticleCreateView(CreateView):
     model = Article
     form_class = ArticleForm
@@ -24,13 +25,16 @@ class ArticleCreateView(CreateView):
         return render(self.request, "articles/partials/article-detail.html",{'article': obj})
         #return redirect("articles:article-detail", pk=obj.id)
 
+
 class HomeView(ListView):
     model = Article
+
     template_name = "articles/index.html"
 
     def get_context_data(self, *, object_list=None, **kwargs):
         articles = Article.objects.all()
         return super().get_context_data(articles=articles, **kwargs)
+
 
 class ArticleDetailView(View):
     model = Article
