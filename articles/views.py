@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib import messages
 from django.views.generic.list import ListView
@@ -19,7 +20,8 @@ class ArticleCreateView(CreateView):
         form.instance.author = self.request.user
         obj = form.save()
         messages.add_message(self.request, messages.SUCCESS, 'Your article has been saved!')
-        return redirect("articles:article-detail", pk=obj.id)
+        return render(self.request, "articles/partials/article-detail.html",{'article': obj})
+        #return redirect("articles:article-detail", pk=obj.id)
 
 class HomeView(ListView):
     model = Article
@@ -39,4 +41,4 @@ class ArticleDetailView(View):
     def delete(self, request, pk, *args, **kwargs):
         Article.objects.get(id=pk).delete()
         articles = Article.objects.filter(author=self.request.user)
-        return render(self.request, 'base.html', {'articles': articles})
+        return HttpResponse("")

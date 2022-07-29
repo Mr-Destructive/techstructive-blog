@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
+<div hx-target="this" hx-swap="outerHTML">
 <div class="container pt-5">
     <form method="post" novalidate>
         {% csrf_token %}
@@ -14,11 +15,12 @@
         {% endfor %}
         <div>
        <button 
-         hx-post="{% url 'articles:article-create' %}"
+         hx-post="."
          type="submit" class="btn btn-success btn-sm">
          Save
        </button>
         </div>
     </form>
+</div>
 </div>
 {% endblock %}

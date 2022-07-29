@@ -1,0 +1,7 @@
+{% load markdown_article %}
+<div id="article-detail">
+  {% include 'articles/partials/article-delete.html' %}
+  <h2>{{ article.title }}</h2>
+    <h3>{{ article.description }}</h3>
+    <p>{{ article.content|convert_markdown|safe }}</p>
+</div>
