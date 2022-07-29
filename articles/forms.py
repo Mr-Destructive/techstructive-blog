@@ -28,7 +28,7 @@ class ArticleForm(forms.ModelForm):
                 attrs={
                     "class": "form-control",
                     "style": "max-width: 900px;",
-                    "placeholder": "description",
+                    "placeholder": "Description",
                 }
             ),
             "content": forms.Textarea(

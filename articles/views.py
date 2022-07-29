@@ -7,14 +7,12 @@ from django.views import View
 
 from django.shortcuts import redirect
 
-import articles
 from .models import Article
 from .forms import ArticleForm
 
 class ArticleCreateView(CreateView):
     model = Article
     form_class = ArticleForm
-    template_name = 'articles/article_form.html'
     #fields = ['title', 'description', 'content', 'status', 'blog']
 
     def form_valid(self, form):
@@ -25,7 +23,7 @@ class ArticleCreateView(CreateView):
 
 class HomeView(ListView):
     model = Article
-    template_name = "base.html"
+    template_name = "articles/index.html"
 
     def get_context_data(self, *, object_list=None, **kwargs):
         articles = Article.objects.all()
