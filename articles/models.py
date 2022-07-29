@@ -1,5 +1,6 @@
 from user.models import TimeStampedModel
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 from django.db import models
 from blog.models import Blog
 from user.models import User
@@ -37,3 +38,6 @@ class Article(TimeStampedModel):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):      
+        return reverse('articles:article-detail', args=[str(self.id)])

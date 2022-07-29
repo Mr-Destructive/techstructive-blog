@@ -29,7 +29,7 @@ class User(AbstractUser):
     last_name = None  # type: ignore
 
     def __str__(self):
-        return self.name
+        return self.username
 
     def get_absolute_url(self):
         """Get url for user's detail view.

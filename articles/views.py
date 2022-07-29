@@ -16,7 +16,6 @@ from .forms import ArticleForm
 class ArticleCreateView(CreateView):
     model = Article
     form_class = ArticleForm
-    #fields = ['title', 'description', 'content', 'status', 'blog']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -43,8 +42,16 @@ class ArticleDetailView(View):
     def delete(self, request, pk, *args, **kwargs):
         Article.objects.get(id=pk).delete()
         articles = Article.objects.filter(author=self.request.user)
-        return HttpResponse("")
+        return render(request, "articles/partials/article-list.html", {'articles': articles})
     
     def put(self, request, pk, *args, **kwargs):
         article = Article.objects.get(id=pk)
-        return render(self.request, 'articles/partials/update.html', {'form': ArticleForm(instance=article), 'article': article})
+        form = ArticleForm(instance=article)
+        context = {'form': form, 'article': article}
+        return render(self.request, "articles/partials/update.html", context)
+
+class ArticleUpdateView(UpdateView):
+    model = Article
+    form_class = ArticleForm
+    template_name = "articles/edit_article.html"
+
