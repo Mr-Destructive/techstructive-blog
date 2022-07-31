@@ -14,7 +14,7 @@
         {% endfor %}
         <div>
        <button 
-         hx-get="{% url 'articles:article-update' article.id %}"
+         hx-post="{% url 'articles:article-update' article.id %}"
          type="submit" class="btn btn-success btn-sm">
          Update
        </button>

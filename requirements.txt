@@ -9,5 +9,7 @@ django-allauth
 django-crispy-forms
 crispy-bootstrap5==0.6
 psycopg2-binary
+PyYAML==6.0
+python-frontmatter==1.0.0
 Markdown
 django[argon2]

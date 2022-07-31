@@ -4,7 +4,7 @@
         {% csrf_token %}
         {{ form.as_p }}
         <div>
-          <button hx-post="{% url 'articles:article-update' article.id %}"
+          <button hx-put="{% url 'articles:article-update' article.id %}"
               type="submit" class="btn btn-success">Update</button>
         </div>
     </form>

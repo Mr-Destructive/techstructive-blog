@@ -29,7 +29,8 @@ class ArticleForm(forms.ModelForm):
                 attrs={
                     "class": "form-control post-body",
                     "id": "text-content",
-                    "style": "contenteditable='true'",
+                    "style": "max-width:900px;",
+                    "hx-post": "/article/meta/",
                     "placeholder": "Content",
                 }
             ),
