@@ -15,16 +15,21 @@
         {% endfor %}
         <div>
        <button 
+         hx-post="."
          type="submit" class="btn btn-success btn-sm">
          Save
        </button>
         </div>
     </form>
 </div>
+
+<script>
+const textarea = document.getElementById("text-content");
+
+textarea.addEventListener("input", function (e) {
+  this.style.height = "auto";
+  this.style.height = this.scrollHeight + "px";
+});
+</script>
 </div>
 {% endblock %}
-       <button 
-         hx-post="."
-         type="submit" class="btn btn-success btn-sm">
-         Save
-       </button>

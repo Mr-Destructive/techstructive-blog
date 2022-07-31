@@ -104,3 +104,7 @@ nav >ul
 {
     width: 6em;
 }
+textarea {
+  resize: none;
+  overflow: hidden;
+}

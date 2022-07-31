@@ -115,7 +115,7 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-DATABASES["default"].update(env.db("DATABASE_URL"))
+#DATABASES["default"].update(env.db("DATABASE_URL"))
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
