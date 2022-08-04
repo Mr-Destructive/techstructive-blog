@@ -1,8 +1,13 @@
 from django import forms
+from blog.models import Blog
 from .models import Article
 
 
 class ArticleForm(forms.ModelForm):
+    def __init__(self, user, *args, **kwargs):
+        super(ArticleForm, self).__init__(*args, **kwargs)
+        self.fields['blog'].queryset = Blog.objects.filter(authors=user)
+
     class Meta:
         model = Article
         exclude = (

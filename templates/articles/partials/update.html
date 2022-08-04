@@ -1,3 +1,4 @@
+{% load markdown_article %}
 <div hx-target="this" hx-swap="outerHTML">
 <div class="container pt-5">
     <form>
@@ -5,6 +6,9 @@
         {% for field in form.visible_fields %}
             <div class="form-group">
                 <label for="{{ field.id_for_label }}">{{field.label}}</label>
+                {# {% if field.label == 'Content' %} #}
+                {#  <p>{{ field.value|convert_markdown|safe|linebreaks }}</p> #}
+                {# {% endif %} #}
                   {{ field }}
                 {% for error in field.errors %}
                     <span class="help-block" style="color:red">{{error}}</span>

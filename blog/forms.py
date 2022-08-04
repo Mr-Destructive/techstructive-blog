@@ -6,6 +6,7 @@ class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
         exclude = (
+            "authors",
             "created",
             "updated",
         )

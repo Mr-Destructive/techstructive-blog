@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+<div hx-target="this" hx-swap="outerHTML">
+<form >
+  <select name="blog" id="blog-options">
+  {% for blog in blogs %}
+    <option value="{{ blog.id }}">{{ blog.name }}</option>
+  {% endfor %}
+</select>
+<button 
+  hx-post="."
+  type="submit">Submit</button>
+</form>
+</div>
+{% endblock %}
