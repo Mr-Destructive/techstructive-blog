@@ -16,7 +16,7 @@ class BlogViewSet(viewsets.ModelViewSet):
     serializer_class = BlogSerializer
 
 
-class BlogView(View, LoginRequiredMixin):
+class BlogView(LoginRequiredMixin, View):
     model = Blog
     template_name = "base.html"
 

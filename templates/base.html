@@ -67,8 +67,8 @@
     <div class="container">
 
       {% block body %}
-      <h2>{{ blog.name }}</h2>
       {% if user.is_authenticated %}
+      <h2>{{ blog.name }}</h2>
       <a href="{% url 'articles:article-create' %}"><button class="btn">Create</button></a>
         <ul id="article-list">
           {% for article in articles %}
