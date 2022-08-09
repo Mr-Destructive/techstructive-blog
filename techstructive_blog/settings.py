@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
-from typing import DefaultDict
 import environ
 
 env = environ.Env()
@@ -32,8 +31,12 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG", default=True)
 
-ALLOWED_HOSTS = ["https://django-blog.up.railway.app", "django-blog.up.railway.app", "127.0.0.1"]
+ALLOWED_HOSTS = ["https://django-blog.up.railway.app","127.0.0.1", "https://techstructive-blog.up.railway.app", "techstructive-blog.up.railway.app"]
 
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = "DENY"
 
 # Application definition
 
@@ -104,17 +107,17 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#        "default": env.db( "DATABASE_URL",
-#            default="postgres://postgres:postgres@localhost:5432/techstructive_blog",
-#    ),
-# }
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+       "default": env.db( "DATABASE_URL",
+           default="postgres://postgres:postgres@localhost:5432/techstructive_blog",
+   ),
 }
+#DATABASES = {
+#    "default": {
+#        "ENGINE": "django.db.backends.sqlite3",
+#        "NAME": BASE_DIR / "db.sqlite3",
+#    }
+#}
 #DATABASES["default"].update(env.db("DATABASE_URL"))
 
 # Internationalization
@@ -199,10 +202,7 @@ SOCIALACCOUNT_ADAPTER = "user.adapters.SocialAccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
 SOCIALACCOUNT_FORMS = {"signup": "user.forms.UserSocialSignupForm"}
 
-CSRF_TRUSTED_ORIGINS = ['https://django-blog.up.railway.app','http://127.0.0.1',]
-# django-rest-framework
-# django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
-
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1", "https://techstructive-blog.up.railway.app",] 
 
 ACCOUNT_AUTHENTICATION_METHOD = "username"
 ACCOUNT_EMAIL_REQUIRED = True
@@ -219,5 +219,3 @@ EMAIL_HOST_PASSWORD = "qupapedismynlyup"
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-
-APP_EXCLUDE = ['admin','allauth', 'auth']
