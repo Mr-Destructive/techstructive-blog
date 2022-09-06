@@ -24,5 +24,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path("article/", include("articles.urls", namespace="articles")),
     path("", include("blog.urls", namespace="blog")),
+    path(r'watchman/', include('watchman.urls')),
     #path("api/", include(router.urls)),
 ]

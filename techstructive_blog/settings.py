@@ -47,6 +47,7 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.postgres",
 ]
 
 THIRD_PARTY_APPS = [
@@ -56,6 +57,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     "rest_framework",
+    "watchman",
 ]
 
 LOCAL_APPS = [
@@ -107,17 +109,17 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-       "default": env.db( "DATABASE_URL",
-           default="postgres://postgres:postgres@localhost:5432/techstructive_blog",
-   ),
-}
 #DATABASES = {
-#    "default": {
-#        "ENGINE": "django.db.backends.sqlite3",
-#        "NAME": BASE_DIR / "db.sqlite3",
-#    }
+#       "default": env.db( "DATABASE_URL",
+#           default="postgres://postgres:postgres@localhost:5432/techstructive_blog",
+#   ),
 #}
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
 #DATABASES["default"].update(env.db("DATABASE_URL"))
 
 # Internationalization
@@ -219,3 +221,36 @@ EMAIL_HOST_PASSWORD = "qupapedismynlyup"
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+
+#SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+#SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
+#SECURE_HSTS_SECONDS = 60
+#SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
+#    "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True
+#)
+#SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
+#SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
+#    "DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True
+#)
+
+SERVER_EMAIL = env("DJANGO_SERVER_EMAIL", default=DEFAULT_FROM_EMAIL)
+DEFAULT_FROM_EMAIL = env(
+    "DJANGO_DEFAULT_FROM_EMAIL",
+    default="Techstructive Blog <noreply@meetgor.com>",
+)
+EMAIL_SUBJECT_PREFIX = env(
+    "DJANGO_EMAIL_SUBJECT_PREFIX",
+    default="[Techstructive Blog]",
+)
+
+TIME_ZONE = "UTC"
+LANGUAGE_CODE = "en-us"
+SITE_ID = 1
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

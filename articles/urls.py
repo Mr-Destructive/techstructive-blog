@@ -11,4 +11,5 @@ urlpatterns = [
     path("edit/<int:pk>", views.ArticleDetailView.as_view(), name="article-update"),
     #path("edit/<int:pk>/", views.ArticleUpdateView.as_view(), name="article-update"),
     path("meta/", views.ArticleMetaView.as_view(), name="article-meta"),
+    path("fetch-from-rss/", views.FetchArticlesFromRSS.as_view(), name="fetch-from-rss"),
 ]

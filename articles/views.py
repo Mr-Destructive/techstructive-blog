@@ -1,3 +1,4 @@
+from re import T
 from django.http import HttpResponse, QueryDict
 from django.shortcuts import render
 from rest_framework import request
@@ -9,6 +10,7 @@ from django.urls import reverse
 from django.views import View
 import frontmatter
 from django.shortcuts import redirect
+import feedparser
 
 
 from .models import Article
@@ -45,8 +47,8 @@ class HomeView(View):
     template_name = "articles/index.html"
     def get(self, request):
         articles = Article.objects.filter(author=request.user)
-        blog = Blog.objects.get(authors=request.user)
-        context = {'articles': articles, 'blog': blog}
+        #blog = Blog.objects.get(authors=request.user)
+        context = {'articles': articles}#, 'blog': blog}
         return render(request, "articles/index.html", context)
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -125,3 +127,19 @@ class ArticleMetaView(View):
             kwargs = super(ArticleMetaView, self).get_form_kwargs()
             kwargs.update({'user': self.request.user})
             return kwargs
+
+class FetchArticlesFromRSS(View):
+    def get(self, request):
+        link = "https://www.meetgor.com/rss"
+        feed = feedparser.parse(link)
+        article_list = Article.objects.values_list('title', flat=True)
+        for post in feed.entries:
+            if not post.title in article_list:
+                article = Article()
+                article.title = post['title']
+                article.content = post['content'][0]['value']
+                article.description = post['summary']
+                article.status = "PUBLISHED"
+                article.author = self.request.user
+                article.save()
+        
