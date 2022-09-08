@@ -32,7 +32,7 @@ SECRET_KEY = env(
 DEBUG = env("DEBUG", default=True)
 
 ALLOWED_HOSTS = ["https://django-blog.up.railway.app","127.0.0.1", "https://techstructive-blog.up.railway.app", "techstructive-blog.up.railway.app"]
-
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1", "https://techstructive-blog.up.railway.app",] 
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
 SECURE_BROWSER_XSS_FILTER = True
@@ -153,7 +153,6 @@ LOGIN_REDIRECT_URL = '/'
 # Authentication
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 # PASSWORDS
