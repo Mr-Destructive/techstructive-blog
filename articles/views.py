@@ -1,4 +1,6 @@
+from operator import concat
 from re import T
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse, QueryDict
 from django.shortcuts import render
 from rest_framework import request
@@ -11,6 +13,7 @@ from django.views import View
 import frontmatter
 from django.shortcuts import redirect
 import feedparser
+import re
 
 
 from .models import Article
@@ -41,7 +44,7 @@ class ArticleCreateView(CreateView):
         return render(self.request, "articles/partials/article-detail.html",context)
 
 
-class HomeView(View):
+class HomeView(LoginRequiredMixin, View):
     model = Article
 
     template_name = "articles/index.html"
@@ -56,7 +59,7 @@ class HomeView(View):
         return super().get_context_data(articles=articles, **kwargs)
 
 
-class ArticleDetailView(View):
+class ArticleDetailView(LoginRequiredMixin, View):
     model = Article
 
     def get_form_kwargs(self):
@@ -134,12 +137,21 @@ class FetchArticlesFromRSS(View):
         feed = feedparser.parse(link)
         article_list = Article.objects.values_list('title', flat=True)
         for post in feed.entries:
+            print(post.title)
             if not post.title in article_list:
                 article = Article()
                 article.title = post['title']
-                article.content = post['content'][0]['value']
+                content = post['content'][0]['value']
+                #content = content.replace(r'<div class="prevnext">(.*?)</div>', "")
+                prevnext = re.findall(r'<div class="prevnext">(.*?)</div>', content)
+                prevnext += re.findall(r'<a class="next"(.*?)</a>', content)
+                for i in prevnext:
+                    content = content.replace(i, "")
+                article.content = content
                 article.description = post['summary']
                 article.status = "PUBLISHED"
                 article.author = self.request.user
                 article.save()
+
+        return redirect('/article')
         

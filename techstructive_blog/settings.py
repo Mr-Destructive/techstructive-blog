@@ -53,9 +53,6 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     "rest_framework",
     "watchman",
 ]
@@ -100,7 +97,6 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "user.context_processors.allauth_settings",
             ],
         },
     },
@@ -152,8 +148,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = "user.User"
 LOGIN_REDIRECT_URL = "home"
-LOGIN_URL = "account_login"
-
+LOGIN_REDIRECT_URL = '/'
 
 # Authentication
 AUTHENTICATION_BACKENDS = [
@@ -186,66 +181,6 @@ AUTH_PASSWORD_VALIDATORS = [
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
-# django-allauth
-# ------------------------------------------------------------------------------
-ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_AUTHENTICATION_METHOD = "username"
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_EMAIL_REQUIRED = True
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = "user.adapters.AccountAdapter"
-# https://django-allauth.readthedocs.io/en/latest/forms.html
-ACCOUNT_FORMS = {"signup": "user.forms.UserSignupForm"}
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = "user.adapters.SocialAccountAdapter"
-# https://django-allauth.readthedocs.io/en/latest/forms.html
-SOCIALACCOUNT_FORMS = {"signup": "user.forms.UserSocialSignupForm"}
-
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1", "https://techstructive-blog.up.railway.app",] 
-
-ACCOUNT_AUTHENTICATION_METHOD = "username"
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-ACCOUNT_ADAPTER = "user.adapters.AccountAdapter"
-ACCOUNT_FORMS = {"signup": "user.forms.UserSignupForm"}
-SOCIALACCOUNT_ADAPTER = "user.adapters.SocialAccountAdapter"
-SOCIALACCOUNT_FORMS = {"signup": "user.forms.UserSocialSignupForm"}
-
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "dj.notes0@gmail.com"
-EMAIL_HOST_PASSWORD = "qupapedismynlyup"
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-
-
-#SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-
-#SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
-#SESSION_COOKIE_SECURE = True
-#CSRF_COOKIE_SECURE = True
-#SECURE_HSTS_SECONDS = 60
-#SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
-#    "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True
-#)
-#SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
-#SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
-#    "DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True
-#)
-
-SERVER_EMAIL = env("DJANGO_SERVER_EMAIL", default=DEFAULT_FROM_EMAIL)
-DEFAULT_FROM_EMAIL = env(
-    "DJANGO_DEFAULT_FROM_EMAIL",
-    default="Techstructive Blog <noreply@meetgor.com>",
-)
-EMAIL_SUBJECT_PREFIX = env(
-    "DJANGO_EMAIL_SUBJECT_PREFIX",
-    default="[Techstructive Blog]",
-)
 
 TIME_ZONE = "UTC"
 LANGUAGE_CODE = "en-us"

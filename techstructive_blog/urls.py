@@ -21,7 +21,7 @@ from articles import views as article_views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("user/", include("user.urls", namespace="users")),
-    path('accounts/', include('allauth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path("article/", include("articles.urls", namespace="articles")),
     path("", include("blog.urls", namespace="blog")),
     path(r'watchman/', include('watchman.urls')),
