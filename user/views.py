@@ -1,4 +1,3 @@
-from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse
@@ -7,8 +6,8 @@ from django.views.generic import DetailView, RedirectView, UpdateView
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from user.forms import UserRegisterForm
+from django.contrib.auth import get_user_model
 User = get_user_model()
-
 
 class UserDetailView(LoginRequiredMixin, DetailView):
 
@@ -55,7 +54,6 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-
             messages.success(request, f'Your account has been created. You can log in now!')    
             return redirect('login')
     else:
