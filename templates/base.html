@@ -42,17 +42,15 @@
           <a class="nav-link" href="{% url 'logout' %}?next={{request.path}}">{% translate "Sign Out" %}</a>
         </li>
       {% else %}
-        {% if ACCOUNT_ALLOW_REGISTRATION %}
       <li class="nav-item">
         {# URL provided by django-allauth/account/urls.py #}
-        <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
+        <a id="sign-up-link" class="nav-link" href="{% url 'user:register' %}">{% translate "Sign Up" %}</a>
       </li>
       {% endif %}
         <li class="nav-item">
           {# URL provided by django-allauth/account/urls.py #}
           <a id="log-in-link" class="nav-link" href="{% url 'login' %}">{% translate "Sign In" %}</a>
         </li>
-        {% endif %}
         </ul>
         </div>
       </div>

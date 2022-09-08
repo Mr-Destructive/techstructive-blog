@@ -4,7 +4,9 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
-
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from user.forms import UserRegisterForm
 User = get_user_model()
 
 
@@ -46,3 +48,18 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 
 user_redirect_view = UserRedirectView.as_view()
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, f'Your account has been created. You can log in now!')    
+            return redirect('login')
+    else:
+        form = UserRegisterForm()
+
+    context = {'form': form}
+    return render(request, 'user/register.html', context)
